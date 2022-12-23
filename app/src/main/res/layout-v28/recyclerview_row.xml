@@ -29,9 +29,10 @@
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
             android:layout_toEndOf="@+id/imgActor"
-            android:text="NAME"
+            android:text="AD"
             android:textColor="@color/black"
             android:textSize="16sp" />
+
 
         <TextView
             android:id="@+id/txtFilm"
@@ -50,7 +51,9 @@
             android:layout_height="30dp"
             android:background="@drawable/deletebutton"
             android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"/>
+            android:layout_alignParentBottom="true"
+            android:outlineAmbientShadowColor="@color/black"/>
+
 
     </RelativeLayout>
 

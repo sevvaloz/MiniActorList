@@ -41,23 +41,16 @@ class MainActivity : AppCompatActivity() {
         rv.adapter = adapter
         rv.layoutManager = LinearLayoutManager(this)
 
-        //buttons
+        //add button
         btn_add_actor.setOnClickListener {
             val random = (0..5).random()
             new = actorList[random]
             adapter.addActor(new)
         }
 
-        btn_delete_actor.setOnClickListener {
-            adapter.deleteActor()
-        }
-
-
 
 
     }
-
-
 
 
 

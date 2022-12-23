@@ -5,6 +5,7 @@ import android.text.Layout
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
@@ -22,11 +23,13 @@ class ActorAdapter(val actorList: ArrayList<Actor>, val context: Context): Recyc
        var txtName: TextView? = null
        var txtFilm: TextView? = null
        var imgActor: ImageView? = null
+       var btnDelete: ImageView? = null
 
        init {
            txtName = itemview.findViewById(R.id.txtName)
            txtFilm = itemview.findViewById(R.id.txtFilm)
            imgActor = itemview.findViewById(R.id.imgActor)
+           btnDelete = itemview.findViewById(R.id.btnDelete)
        }
    }
 
@@ -45,7 +48,11 @@ class ActorAdapter(val actorList: ArrayList<Actor>, val context: Context): Recyc
         holder.imgActor?.let {
             Glide.with(context)
                     .load(current.image)
+                    .circleCrop()
                     .into(it)
+        }
+        holder.btnDelete?.setOnClickListener {
+            deleteActor(current)
         }
     }
 
@@ -54,17 +61,16 @@ class ActorAdapter(val actorList: ArrayList<Actor>, val context: Context): Recyc
     }
 
 
-
     //add actor function
     fun addActor(a: Actor){
         actorList.add(a)
         notifyItemInserted(actorList.size - 1)
     }
+
     //delete actor function
-    fun deleteActor(){
-        val index = actorList.size-1
-        val random = (0..index).random()
-        actorList.removeAt(random)
+    fun deleteActor(a: Actor){
+        val position = actorList.indexOf(a)
+        actorList.removeAt(position)
         notifyDataSetChanged()
     }
 
