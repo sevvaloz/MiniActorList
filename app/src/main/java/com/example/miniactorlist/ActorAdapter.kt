@@ -64,14 +64,14 @@ class ActorAdapter(val actorList: ArrayList<Actor>, val context: Context): Recyc
     //add actor function
     fun addActor(a: Actor){
         actorList.add(a)
-        notifyItemInserted(actorList.size - 1)
+        notifyItemInserted(actorList.size)
     }
 
     //delete actor function
     fun deleteActor(a: Actor){
-        val position = actorList.indexOf(a)
-        actorList.removeAt(position)
-        notifyDataSetChanged()
+        val pos = actorList.indexOf(a)
+        actorList.removeAt(pos)
+        notifyItemRemoved(pos)
     }
 
 }

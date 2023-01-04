@@ -17,9 +17,6 @@ import java.text.FieldPosition
 
 class MainActivity : AppCompatActivity() {
 
-    //lateinit var list: ArrayList<Actor>
-    lateinit var new: Actor
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -37,21 +34,13 @@ class MainActivity : AppCompatActivity() {
 
 
         val adapter: ActorAdapter = ActorAdapter(arrayListOf(actor1, actor2, actor3, actor4, actor5), this)
-
         rv.adapter = adapter
         rv.layoutManager = LinearLayoutManager(this)
 
         //add button
         btn_add_actor.setOnClickListener {
             val random = (0..5).random()
-            new = actorList[random]
-            adapter.addActor(new)
+            adapter.addActor(actorList[random])
         }
-
-
-
     }
-
-
-
 }
